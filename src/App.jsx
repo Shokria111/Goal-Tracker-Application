@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,15 +10,15 @@ import { GoalsProvider } from "./context/GoalsContext";
 import i18n from "./i18next";
 import getTheme from "./theme/theme";
 import { createRtlCache } from "./theme/rtlCache";
-
+import GoalDetails from "./pages/goals/GoalDetails";
 import Layout from "./layout/layout";
-import DashBoard from "./pages/Dashboard";
-import Goals from "./pages/Goals";
-import NewGoal from "./pages/NewGoal";
-import Categories from "./pages/Categories";
-import Settings from "./pages/Settings";
-import NotFound from "./pages/NotFound";
-import GoalDetails from "./pages/GoalDetials";
+import DashBoard from "./pages/dashboard/Dashboard";
+import Goals from "./pages/goals/Goals";
+import NewGoal from "./pages/goals/NewGoal";
+import Categories from "./pages/categories/Categories";
+import Settings from "./pages/setting/Settings";
+import NotFound from "./pages/notFound/NotFound";
+
 
 function AppContent() {
   const { i18n } = useTranslation();
@@ -38,25 +38,23 @@ function AppContent() {
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
           <GoalsProvider>
-            <Routes>
-              <Route
-                path="/"
-                element={<Layout mode={mode} toggleMode={toggleMode} />}
-              >
+           <Routes>
+              <Route path="/" element={<Layout mode={mode} toggleMode={toggleMode} />}>
                 <Route index element={<DashBoard />} />
                 <Route path="dashboard" element={<DashBoard />} />
+
                 <Route path="goals" element={<Goals />} />
                 <Route path="goals/new" element={<NewGoal />} />
+                <Route path="goals/edit/:id" element={<NewGoal />} />
                 <Route path="goals/:id" element={<GoalDetails />} />
+
                 <Route path="categories" element={<Categories />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
           </GoalsProvider>
-        </BrowserRouter>
       </ThemeProvider>
     </CacheProvider>
   );

@@ -25,5 +25,49 @@
   "all": "همه",
   "noGoals": "هنوز هدفی وجود ندارد",
   "notFound": "صفحه یافت نشد",
-  "goHome": "بازگشت به خانه"
+  "goHome": "بازگشت به خانه",
+  "manageGoals": "اهداف خود را مدیریت، فیلتر و پیگیری کنید.",
+  "allGoals": "همه اهداف",
+  "filtersSorting": "فیلتر و مرتب‌سازی",
+  "searchByTitle": "جستجو بر اساس عنوان",
+  "sortBy": "مرتب‌سازی بر اساس",
+  "newest": "جدیدترین",
+  "goalCount": "اهداف",
+  "sidebar": "نوار کناری",
+  "view": "مشاهده",
+    "filtersAndSorting": "فیلتر و مرتب‌سازی",
+  "searchGoals": "جستجو بر اساس عنوان هدف...",
+  "creationDate": "تاریخ ایجاد",
+  "dueDate": "تاریخ سررسید",
+  "title": "عنوان",
+
+  "openGoalDetails": "مشاهده جزئیات هدف",
+
+  "start": "شروع",
+  "end": "پایان",
+  "deadline": "ددلاین",
+
+  "sessions": "جلسه",
+  "complete": "تکمیل",
+  "totalGoals": "کل اهداف",
+
+  
+  "createGoal": "ایجاد هدف جدید",
+  "goalTitle": "عنوان هدف",
+  "goalType": "نوع هدف",
+  "category": "دسته‌بندی",
+  "startDate": "تاریخ شروع",
+  "endDate": "تاریخ پایان",
+  "notes": "یادداشت‌ها",
+  "saveGoal": "ذخیره هدف",
+  "cancel": "انصراف",
+
+  "daily": "روزانه",
+  "count": "تعداد",
+  "time": "زمان",
+
+  "health": "سلامت",
+  "study": "مطالعه",
+  "work": "کار",
+  "personal": "شخصی"
 }

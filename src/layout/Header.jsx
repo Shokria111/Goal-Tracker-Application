@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import LanguageSwitcher from "../components/languageSwitcher/LanguageSwitcher";
 import { useTheme } from "@mui/material/styles";
 
 import AppBar from "@mui/material/AppBar";

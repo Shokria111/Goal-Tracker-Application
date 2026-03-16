@@ -25,5 +25,47 @@
   "all": "All",
   "noGoals": "No goals yet",
   "notFound": "Page Not Found",
-  "goHome": "Go Home"
+  "goHome": "Go Home",
+  "manageGoals": "Manage, filter, and track all your goals.",
+  "allGoals": "All Goals",
+  "filtersSorting": "Filters & Sorting",
+  "searchByTitle": "Search by title",
+  "sortBy": "Sort by",
+  "newest": "Newest",
+  "goalCount": "Goals",
+  "sidebar": "Sidebar",
+  "view": "View",
+  "filtersAndSorting": "Filters & Sorting",
+  "searchGoals": "Search goals by title...",
+  "creationDate": "Creation date",
+  "dueDate": "Due date",
+  "title": "Title",
+
+  "openGoalDetails": "Open Goal Details",
+
+  "start": "Start",
+  "end": "End",
+  "deadline": "Deadline",
+
+  "sessions": "Sessions",
+  "complete": "complete",
+  "totalGoals": "Total Goals",
+  
+  "createGoal": "Create Goal",
+  "goalTitle": "Goal Title",
+  "goalType": "Goal Type",
+  "category": "Category",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "notes": "Notes",
+  "saveGoal": "Save Goal",
+  "cancel": "Cancel",
+  "daily": "Daily",
+  "count": "Count-based",
+  "time": "Time-based",
+  "health": "Health",
+  "study": "Study",
+  "work": "Work",
+  "personal": "Personal"
+
 }

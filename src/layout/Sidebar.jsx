@@ -48,7 +48,9 @@ export default function Sidebar() {
           >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={t(item.label)} />
-          </ListItemButton>
+          </ListItemButton>//we used Link component to navigate to different pages without reloading the page, and
+          // its another way to use link with loop 
+          // we used the to prop to specify the path we want to navigate to when the item is clicked.
         ))}
       </List>
     </Box>

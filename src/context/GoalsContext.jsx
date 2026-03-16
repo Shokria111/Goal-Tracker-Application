@@ -13,49 +13,80 @@ const initialState = {
 
 function goalsReducer(state, action) {
   switch (action.type) {
-    case "CREATE_GOAL":
+
+    case "CREATE_GOAL": {
+      const updatedGoals = [...state.goals, action.payload];
       return {
         ...state,
-        goals: [...state.goals, action.payload],
+        goals: updatedGoals,
+        stats: {
+          ...state.stats,
+          completedCount: updatedGoals.filter((goal) => goal.status === "completed").length,
+        }
       };
-
-    case "UPDATE_GOAL":
+    }
+    case "UPDATE_GOAL":{
+      const updatedGoals = state.goals.map((goal) =>
+        goal.id === action.payload.id ? action.payload : goal
+      );
       return {
         ...state,
-        goals: state.goals.map((goal) =>
-          goal.id === action.payload.id ? action.payload : goal
-        ),
+        goals: updatedGoals,
+        stats: {
+          ...state.stats,
+          completedCount: updatedGoals.filter((goal) => goal.status === "completed").length,
+        }
       };
+    }
+    case "DELETE_GOAL":{
+      const updatedGoals = state.goals.filter((goal) => goal.id !== action.payload);
+       return {
+        ...state,
+        goals: updatedGoals,
+        stats: {
+          ...state.stats,
+          completedCount: updatedGoals.filter((goal) => goal.status === "completed").length,
+        }
+      };
+    }
+    case "TOGGLE_PAUSE":{
+      const updatedGoals = state.goals.map((goal) =>
+        goal.id === action.payload
+          ? {
+              ...goal,
+              status: goal.status === "paused" ? "active" : "paused",
+            }
+          : goal
+      );
 
-    case "DELETE_GOAL":
       return {
         ...state,
-        goals: state.goals.filter((goal) => goal.id !== action.payload),
+        goals: updatedGoals,
+        stats: {
+          ...state.stats,
+          completedCount: updatedGoals.filter((goal) => goal.status === "completed").length,
+        }
+      };
       };
 
-    case "TOGGLE_PAUSE":
+    case "MARK_COMPLETE": {
+      const updatedGoals = state.goals.map((goal) =>
+        goal.id === action.payload
+          ? { ...goal, status: "completed", progress: goal.target }
+          : goal
+      );
+
       return {
         ...state,
-        goals: state.goals.map((goal) =>
-          goal.id === action.payload
-            ? {
-                ...goal,
-                status: goal.status === "paused" ? "active" : "paused",
-              }
-            : goal
-        ),
+        goals: updatedGoals,
+        stats: {
+          ...state.stats,
+          completedCount: updatedGoals.filter(
+            (goal) => goal.status === "completed"
+          ).length,
+        },
       };
-
-    case "MARK_COMPLETE":
-      return {
-        ...state,
-        goals: state.goals.map((goal) =>
-          goal.id === action.payload
-            ? { ...goal, status: "completed", progress: goal.target }
-            : goal
-        ),
-      };
-
+    }
     case "LOAD_GOALS":
       return {
         ...state,
@@ -76,13 +107,13 @@ export function GoalsProvider({ children }) {
     const savedGoals = localStorage.getItem("goals");
     const savedStats = localStorage.getItem("stats");
 
-    if (savedGoals) {
+     try {
       dispatch({
         type: "LOAD_GOALS",
         payload: {
-          goals: JSON.parse(savedGoals),
-          stats: savedStats
-            ? JSON.parse(savedStats)
+          goals: savedGoals ? JSON.parse(savedGoals) : [],
+          stats: savedStats ?
+             JSON.parse(savedStats)
             : {
                 xpTotal: 0,
                 streak: 0,
@@ -90,10 +121,12 @@ export function GoalsProvider({ children }) {
               },
         },
       });
+    } catch (error) {
+      console.error("Failed to load goals from localStorage:", error);
     }
   }, []);
 
-  // Save to localStorage when state changes
+  // Save to localStorage when state changes 
   useEffect(() => {
     localStorage.setItem("goals", JSON.stringify(state.goals));
     localStorage.setItem("stats", JSON.stringify(state.stats));
@@ -118,6 +151,7 @@ export function GoalsProvider({ children }) {
   const markComplete = (id) => {
     dispatch({ type: "MARK_COMPLETE", payload: id });
   };
+
 
   return (
     <GoalsContext.Provider
