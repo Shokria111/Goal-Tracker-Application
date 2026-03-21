@@ -5,12 +5,16 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 
-export default function StatCardsLoop() {
+
+export default function StatCardsLoop({totalGoals, activeGoals, completedGoals, pausedGoals}) {
+
+
+
 const stats = [
-  { id: 1, title: "totalGoals", value: 12, icon: <FlagIcon fontSize="inherit" />, color: "primary" },
-  { id: 2, title: "active", value: 5, icon: <PlayCircleIcon fontSize="inherit" />, color: "info" },
-  { id: 3, title: "completed", value: 6, icon: <CheckCircleIcon fontSize="inherit" />, color: "success" },
-  { id: 4, title: "paused", value: 1, icon: <PauseCircleIcon fontSize="inherit" />, color: "warning" }
+  { id: 1, title: "totalGoals", value: totalGoals, icon: <FlagIcon fontSize="inherit" />, color: "primary" },
+  { id: 2, title: "active", value: activeGoals, icon: <PlayCircleIcon fontSize="inherit" />, color: "info" },
+  { id: 3, title: "completed", value: completedGoals, icon: <CheckCircleIcon fontSize="inherit" />, color: "success" },
+  { id: 4, title: "paused", value: pausedGoals, icon: <PauseCircleIcon fontSize="inherit" />, color: "warning" }
 ];
 
   return(

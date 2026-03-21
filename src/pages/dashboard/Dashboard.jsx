@@ -10,6 +10,7 @@ export default function Dashboard() {
     <div>
       <h2>Dashboard</h2>
       <p>Completed Count: {stats.completedCount}</p>
+
       <Outlet />
     </div>
     

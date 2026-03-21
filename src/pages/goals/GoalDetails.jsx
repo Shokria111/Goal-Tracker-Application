@@ -4,32 +4,36 @@ import { Typography, Stack, Paper } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ArrowBack } from "@mui/icons-material";
+import { Button } from "@mui/material";
+
 
 export default function GoalDetails() {
+  const navigate = useNavigate();
+  const { t } = useTranslation();
   const { id } = useParams();
   const { goals } = useGoals();
 
   const goal = goals.find((g) => g.id === Number(id));
 
   if (!goal) {
-    return <Typography>Goal not found</Typography>;
+    return <Typography>{t("noGoals")}</Typography>;
   }
 
   return (
     <Paper sx={{ p: 3 }}>
       <Stack spacing={2}>
         <Typography variant="h4">{goal.title}</Typography>
-        <Typography>Category: {goal.category}</Typography>
-        <Typography>Type: {goal.type}</Typography>
-        <Typography>Target: {goal.target}</Typography>
-        <Typography>Progress: {goal.progress}</Typography>
-        <Typography>Status: {goal.status}</Typography>
-        <Typography>Start Date: {goal.startDate}</Typography>
-        <Typography>End Date: {goal.endDate}</Typography>
-        <Typography>Notes: {goal.notes}</Typography>
-        <button onClick={() => navigate("/goals")}>
-          <ArrowBack /> {t("backToGoals")}
-        </button>
+        <Typography>{t("category")}: {goal.category}</Typography>
+        <Typography>{t("goalType")}: {goal.type}</Typography>
+        <Typography>{t("target")}: {goal.target}</Typography>
+        <Typography>{t("progress")}: {goal.progress}</Typography>
+        <Typography>{t("status")}: {goal.status}</Typography>
+        <Typography>{t("startDate")}: {goal.startDate}</Typography>
+        <Typography>{t("endDate")}: {goal.endDate}</Typography>
+        <Typography>{t("notes")}: {goal.notes}</Typography>
+        <Button startIcon={<ArrowBack />} onClick={() => navigate("/goals")}>
+          {t("backToGoals")}
+        </Button>
       </Stack>
     </Paper>
   );

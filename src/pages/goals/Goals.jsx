@@ -16,10 +16,18 @@ export default function Goals() {
   const [statusFilter, setStatusFilter] = useState("all");
   const {goals} = useGoals();
 
+  const totalGoals = goals.length;
+  const activeGoals = goals.filter(goal => goal.status === "active").length;
+  const completedGoals = goals.filter(goal => goal.status === "completed").length;
+  const pausedGoals = goals.filter(goal => goal.status === "paused").length;
   return (
     <Stack spacing={3}>
-      <GoalsPageHeader />{/*the top part of the page with the title and the add new goal button*/}
-      <StatCardsLoop /> {/*the cards that show the number of goals in each status*/}
+      <GoalsPageHeader  />{/*the top part of the page with the title and the add new goal button*/}
+      <StatCardsLoop 
+        totalGoals={totalGoals} 
+        activeGoals={activeGoals} 
+        completedGoals={completedGoals} 
+        pausedGoals={pausedGoals} /> {/*the cards that show the number of goals in each status*/}
 
       <GoalsFilters  //the filters and sorting component
         searchTerm={searchTerm}

@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Paper, Stack, Typography, TextField, MenuItem, Button} from '@mui/material';
+import { useState } from 'react';
+import { Paper, Stack, Typography, TextField, MenuItem, Button } from '@mui/material';
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
 import { useGoals } from '../../../context/GoalsContext';
@@ -18,38 +18,24 @@ export default function GoalForm() {
   const [target, setTarget] = useState(existingGoal?.target || "");
   const [startDate, setStartDate] = useState(existingGoal?.startDate || "");
   const [endDate, setEndDate] = useState(existingGoal?.endDate || "");
-  const [notes, setNotes] = useState("");
-  
+  const [notes, setNotes] = useState(existingGoal?.notes || "");  
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (id) {
-  updateGoal({
-    ...existingGoal,
-    title,
-    category,
-    goalType,
-    target,
-    startDate,
-    endDate,
-    notes,
-  });
-} else {
-  createGoal(newGoal);
-}
-
-    const formData ={
+  if (id) {
+    updateGoal({
+      ...existingGoal,
       title,
       category,
-      goalType,
-      target,
+      type: goalType,
+      target: Number(target),
       startDate,
       endDate,
       notes,
-    };
-   
-
+      updatedAt: new Date().toISOString(),
+    });
+  } else {
     const newGoal = {
       id: Date.now(),
       title,
@@ -65,14 +51,16 @@ export default function GoalForm() {
       updatedAt: new Date().toISOString(),
       logs: [],
     };
+
     createGoal(newGoal);
-    //console.log("Form Data:", formData);
-    navigate("/goals");
   }
 
-  
+  navigate("/goals");
+};
 
-  return(
+
+
+  return (
     <Paper
       component='form'
       onSubmit={handleSubmit}
@@ -81,19 +69,20 @@ export default function GoalForm() {
         p: 3,
         border: '1px solid',
         borderColor: 'divider',
-        borderRadius: 3,}}>
-      
+        borderRadius: 3,
+      }}>
+
       <Stack spacing={3}>
         <Typography variant='h5' fontWeight={700}>
           {t("createGoal")}
         </Typography>
 
-        <TextField 
-          label={t("goalTitle")} 
-          fullWidth 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
-          required 
+        <TextField
+          label={t("goalTitle")}
+          fullWidth
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
         />
 
         <TextField
@@ -150,8 +139,10 @@ export default function GoalForm() {
             InputLabelProps={{ shrink: true }}
           />
         </Stack>
+        
         <TextField
           label={t("notes")}
+          value={notes}
           onChange={(e) => setNotes(e.target.value)}
           fullWidth
           multiline
