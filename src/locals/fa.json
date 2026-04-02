@@ -14,6 +14,8 @@
   "xp": "امتیاز XP",
   "totalGoals": "کل اهداف",
   "goalCount": "اهداف",
+  "progressRate": "نرخ تکمیل",
+ 
 
   "progress": "پیشرفت",
   "target": "هدف",
@@ -62,10 +64,13 @@
   "backToGoals": "بازگشت به اهداف",
   "goalNotFound": "هدف یافت نشد",
 
-  "daily": "روزانه",
-  "count": "تعداد",
-  "time": "زمانی",
+  "daily": "روزانه (تعداد روزها)",
+  "count":  "بر اساس تعداد (جلسات یا دفعات)",
+  "time": "بر اساس زمان (دقیقه یا ساعت)",
   "sessions": "جلسه",
+  "targetDaily": "e.g. 7 days",
+"targetCount": "e.g. 3 sessions",
+"targetTime": "e.g. 120 minutes",  
 
   "health": "سلامت",
   "study": "مطالعه",
@@ -73,5 +78,31 @@
   "personal": "شخصی",
 
   "notFound": "صفحه مورد نظر یافت نشد",
-  "goHome": "بازگشت به خانه"
+  "goHome": "بازگشت به خانه",
+
+  "dashboardSubtitle": "پیشرفت خود را دنبال کنید و اهداف خود را مدیریت کنید",
+ 
+  "activeGoalsSection": "اهداف فعال",
+  "activeGoalsSubtitle": "اهداف در حال انجام خود را پیگیری و مدیریت کنید",
+  "noActiveGoals": "هنوز هدف فعالی وجود ندارد",
+
+  "completedGoalsSection": "اهداف تکمیل‌شده",
+  "completedGoalsSubtitle": "سه هدفی که اخیراً تکمیل کرده‌اید ",
+  "noCompletedGoals": "هنوز هدف تکمیل‌شده‌ای وجود ندارد",
+  "viewAllGoals": "مشاهده همه اهداف",
+  "seeDetails": "دیدن جزییات",
+
+"remaining": "باقی‌مانده",
+"categorySubtitle": "عملکرد و پیشرفت خود را به‌صورت بصری مشاهده کنید",
+"categoryAnalytics": "تحلیل عملکرد دسته‌بندی‌ها",
+"categoryCardsTitle": "خلاصه دسته‌بندی‌ها",
+"categoryCardsSubtitle": "نمایی از جزئیات هر دسته‌بندی را مشاهده کنید",
+  
+"settingSubTitle": "تنظیمات برنامه را مدیریت کنید",
+"languageSubtitle": "زبان دلخواه برنامه را انتخاب کنید",
+
+"appearance": "ظاهر",
+"appearanceSubtitle": "بین حالت روشن و تاریک تغییر دهید",
+"switchToLight": "تغییر به حالت روشن",
+"switchToDark": "تغییر به حالت تاریک"
 }

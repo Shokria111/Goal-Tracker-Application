@@ -19,7 +19,7 @@ export default function NewGoal() {
           {t("manageGoals")}
         </Typography>
       </Box>
-
+          {/*imported the form here*/}
       <GoalForm />
     </Stack>
   );

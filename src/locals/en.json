@@ -3,17 +3,19 @@
   "goals": "Goals",
   "newGoal": "+ New Goal",
   "allGoals": "All Goals",
-  "completedGoals": "Completed Goals",
   "activeGoals": "Active Goals",
   "categories": "Categories",
   "settings": "Settings",
   "sidebar": "Sidebar",
   "language": "Language",
 
-  "streak": "Streak",
   "xp": "XP",
   "totalGoals": "Total Goals",
   "goalCount": "Goals",
+  "progressRate": "Completion",
+  "completedGoals": "Completed Goals",
+  "streak": "Streak",
+
 
   "progress": "Progress",
   "target": "Target",
@@ -62,10 +64,14 @@
   "backToGoals": "Back to Goals",
   "goalNotFound": "Goal not found",
 
-  "daily": "Daily",
-  "count": "Count-based",
-  "time": "Time-based",
+  "daily": "Daily — number of days",
+  "count": "Count-based — number of sessions or repetitions",
+  "time": "Time-based — minutes or hours",
   "sessions": "Sessions",
+  "targetDaily": "e.g. 7 days",
+"targetCount": "e.g. 3 sessions",
+"targetTime": "e.g. 120 minutes",
+
 
   "health": "Health",
   "study": "Study",
@@ -74,6 +80,36 @@
 
   "notFound": "Page Not Found",
   "goHome": "Go Home",
-  "goalDetails": "Goal Details"
+  "goalDetails": "Goal Details",
+
+  "dashboardSubtitle": "Track your progress and manage your goals",
+  "viewAllGoals": "View All Goals",
+
+  "activeGoalsSection": "Active Goals",
+  "activeGoalsSubtitle": "Track and manage your ongoing goals",
+  "noActiveGoals": "No active goals yet",
+
+
+ "completedGoalsSection": "Completed Goals",
+  "completedGoalsSubtitle": "Your 3 recent completed goals",
+  "noCompletedGoals": "No completed goals yet",
+  "seeDetails": "See Details",
+  
+"remaining": "Remaining",
+"categoryAnalytics": "Category Analytics",
+"categorySubtitle": "Visualize your performance and progress",
+"categoryCardsTitle": "Category Summary",
+"categoryCardsSubtitle": "View the detailed summary for each category",
+
+
+"languageSubtitle": "Choose your preferred app language",
+
+"appearance": "Appearance",
+"appearanceSubtitle": "Switch between light and dark mode",
+"switchToLight": "Switch to light mode",
+"switchToDark": "Switch to dark mode",
+"settingsSubtitle": "Manage your app here"
+  
+
   
 }

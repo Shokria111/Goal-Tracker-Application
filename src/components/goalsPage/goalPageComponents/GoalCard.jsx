@@ -41,7 +41,6 @@ export default function GoalCard({ goal }) {
     >
       <CardContent>
         <Stack spacing={2}>
-          {/* Title + Status */}
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Typography variant="h6" fontWeight={600}>
               {goal.title}
@@ -54,12 +53,12 @@ export default function GoalCard({ goal }) {
             />
           </Stack>
 
-          {/* Type */}
+          {/* Type of it */}
           <Typography variant="body2" color="text.secondary">
             {goal.type} • {t(goal.unit)}
           </Typography>
 
-          {/* Category Chips */}
+          {/* Category  */}
           <Stack direction="row" spacing={1}>
             <Chip label={goal.category} size="small" variant="outlined" />
             {goal.priority && (

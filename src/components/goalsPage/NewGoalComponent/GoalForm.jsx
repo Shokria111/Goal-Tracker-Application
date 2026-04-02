@@ -19,15 +19,24 @@ export default function GoalForm() {
   const [startDate, setStartDate] = useState(existingGoal?.startDate || "");
   const [endDate, setEndDate] = useState(existingGoal?.endDate || "");
   const [notes, setNotes] = useState(existingGoal?.notes || "");  
+  
 
   const handleSubmit = (event) => {
   event.preventDefault();
 
+  //validation
+  const checkTitle = title.trim();
+  const checkCategory = category.trim();
+
+  if (!checkTitle) return alert("Title is required");
+  if (!checkCategory) return alert("Category is required");
+  if (!target) return alert("Target is required");
+  
   if (id) {
     updateGoal({
       ...existingGoal,
-      title,
-      category,
+      title: checkTitle,
+      category: checkCategory,
       type: goalType,
       target: Number(target),
       startDate,
@@ -38,8 +47,8 @@ export default function GoalForm() {
   } else {
     const newGoal = {
       id: Date.now(),
-      title,
-      category,
+      title: checkTitle,
+      category: checkCategory,
       type: goalType,
       target: Number(target),
       progress: 0,
@@ -58,6 +67,12 @@ export default function GoalForm() {
   navigate("/goals");
 };
 
+const getTargetPlaceholder = () => {
+  if (goalType === "daily") return t("targetDaily");       // e.g. 7 days
+  if (goalType === "count") return t("targetCount");       // e.g. 3 sessions
+  if (goalType === "time") return t("targetTime");         // e.g. 120 minutes
+  return "";
+};
 
 
   return (
@@ -114,6 +129,7 @@ export default function GoalForm() {
 
         <TextField
           label={t("target")}
+          placeholder={getTargetPlaceholder()}
           type="number"
           fullWidth
           value={target}

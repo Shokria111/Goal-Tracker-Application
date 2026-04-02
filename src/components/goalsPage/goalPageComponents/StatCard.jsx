@@ -7,15 +7,21 @@ export default function StatCard({ title, value, icon, color }) {
   return(
     <Card variant='outlined' 
         sx={{
-              borderRadius: 3,
+              borderRadius: 2,
               height: "100%",
               width: "100%",
               borderColor: "divider",
               transition: "0.2s",
               "&:hover": {boxShadow: 3}
      }}>
-      <CardContent>
-        <Box>
+      <CardContent 
+            sx={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  }}>
+        <Box sx={{ minHeight: 72 }}>
           <Box 
             sx={{ 
                 fontSize: 40,

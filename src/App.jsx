@@ -12,7 +12,7 @@ import getTheme from "./theme/theme";
 import { createRtlCache } from "./theme/rtlCache";
 import GoalDetails from "./pages/goals/GoalDetails";
 import Layout from "./layout/layout";
-import DashBoard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import Goals from "./pages/goals/Goals";
 import NewGoal from "./pages/goals/NewGoal";
 import Categories from "./pages/categories/Categories";
@@ -22,7 +22,7 @@ import NotFound from "./pages/notFound/NotFound";
 
 function AppContent() {
   const { i18n } = useTranslation();
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState("dark");
 
   const toggleMode = () => {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
@@ -41,8 +41,8 @@ function AppContent() {
           <GoalsProvider>
            <Routes>
               <Route path="/" element={<Layout mode={mode} toggleMode={toggleMode} />}>
-                <Route index element={<DashBoard />} />
-                <Route path="dashboard" element={<DashBoard />} />
+                <Route index element={<Dashboard />} />
+                <Route path="dashboard" element={<Dashboard />} />
 
                 <Route path="goals" element={<Goals />} />
                 <Route path="goals/new" element={<NewGoal />} />
@@ -50,7 +50,7 @@ function AppContent() {
                 <Route path="goals/:id" element={<GoalDetails />} />
 
                 <Route path="categories" element={<Categories />} />
-                <Route path="settings" element={<Settings />} />
+                <Route path="settings" element={<Settings toggleMode={toggleMode}/>} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
