@@ -1,7 +1,3 @@
-Here is a clean, ready-to-use **README.md** based directly on your rubric :
-
----
-
 # Goal Tracker Dashboard
 
 A responsive multi-page React application that allows users to create, manage, and track goals or habits, with analytics, categories, and gamification features.
